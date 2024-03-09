@@ -1,0 +1,12 @@
+name: Bonjour
+on:
+  - push
+jobs:
+  dire_bonjour:
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/cicd-lectures/gitpod:latest
+      options: --user=root
+    steps:
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - run: cat README.md | cowsay
